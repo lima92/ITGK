@@ -81,18 +81,76 @@ def simpsons_error(func,a,b,error):
         s2=(simpsons(integral,a,b,n))
     print(s2)
 
-simpsons_error(integral,0,1,1e-8)
+#simpsons_error(integral,0,1,1e-8)
         
 
 input("\nPress ENTER to continue...")
-print("\n####   Oppgave 3   ####\n")
+#print("\n####   Oppgave 3   ####\n")
 
 #OPPG3
 
-input("\nPress ENTER to continue...")
+#input("\nPress ENTER to continue...")
 print("\n####   Oppgave 4   ####\n")
 
-#OPPG4
+def is_prime(n):
+    primes=[2]
+    cnt=2
+    while cnt<=math.sqrt(n):
+        for i in (0,len(primes)):
+            if n%primes[i]==0:
+                return False
+            else:
+                primes.append(cnt)
+        cnt+=1
+    return True
 
+#for i in range(5):
+    print(is_prime(int(input(""))))
+    
+def separate(numbers,treshold):
+    less=[]
+    more=[]
+    for i in numbers:
+        if i<treshold:
+            less.append(i)
+        else:
+            more.append(i)
+    return less,more
+
+print(separate([41,452,47,25,425,3,1,2,87,8],60))
+
+def multiplication_table(n):
+    x=[].append()
+    y=n
+    
+    
+    
 input("\nPress ENTER to continue...")
 print("\n####   Oppgave 5   ####\n")
+
+def comp(a,b):
+    if len(a)!=len(b):
+        return False
+    for i in range(0,len(a)):
+        if a[i]!=b[i]:
+            return False
+    return True
+
+def rev(a):
+    l=len(a)-1
+    r=""
+    while(l>=0):
+        r=r+a[l]
+        l-=1
+    return r
+
+def is_palin(a):
+    b=rev(a)
+    if a==b:
+        return True
+    else:
+        return False
+    
+    
+while(True):
+    print(is_palin(input()))
