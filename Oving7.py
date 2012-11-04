@@ -45,7 +45,7 @@ def newton(func,deriv,start,treshold,max_iter):
     else:
         return False
 
-print(newton(polynom3,polynom3_derivate,1,0.001,50))
+print(newton(polynom,polynom_derivate,1,0.000001,20))
 
 input("\nPress ENTER to continue...")
 print("\n####   Oppgave 2   ####\n")
@@ -73,15 +73,15 @@ def simpsons(func,a,b,h):
 def simpsons_error(func,a,b,error):
     n=4
     s1=(simpsons(integral,a,b,n))
-    n+=4
+    n=n*2
     s2=(simpsons(integral,a,b,n))
     while math.fabs(s2-s1)>=error:
-        n+=4
+        n=n*2
         s1=s2
         s2=(simpsons(integral,a,b,n))
     print(s2)
 
-#simpsons_error(integral,0,1,1e-8)
+simpsons_error(integral,0,1,1e-8)
         
 
 input("\nPress ENTER to continue...")
@@ -104,7 +104,7 @@ def is_prime(n):
         cnt+=1
     return True
 
-#for i in range(5):
+for i in range(5):
     print(is_prime(int(input(""))))
     
 def separate(numbers,treshold):
@@ -120,10 +120,15 @@ def separate(numbers,treshold):
 print(separate([41,452,47,25,425,3,1,2,87,8],60))
 
 def multiplication_table(n):
-    x=[].append()
-    y=n
+    for i in range(1,n+1):
+        tbl=[]
+        for j in range(1,n+1):
+            tbl.append(j*i)
+        print(tbl)
+
     
     
+multiplication_table(5)
     
 input("\nPress ENTER to continue...")
 print("\n####   Oppgave 5   ####\n")
@@ -151,6 +156,10 @@ def is_palin(a):
     else:
         return False
     
+def contains(a,b):
+    if a.find(b)==-1:
+        return False
+    return True
     
 while(True):
-    print(is_palin(input()))
+    print(contains(input(),input()))
